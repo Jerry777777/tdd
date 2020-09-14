@@ -22,8 +22,19 @@ public class MommifierTest {
         //When
         Mommifier mommifier = new Mommifier();
         //Then
-        assertThrows(RuntimeException.class,  ()-> {
+        assertThrows(RuntimeException.class, () -> {
             mommifier.convertString(stringOfNull);
         });
+    }
+
+    @Test
+    void should_return_itself_when_given_strings_with_no_repeat_vowels() {
+        //Given
+        String stringOfNoRepeat = "abcde";
+        //When
+        Mommifier mommifier=new Mommifier();
+        String result = mommifier.convertString(stringOfNoRepeat);
+        //Then
+        assertEquals(result, "abcde");
     }
 }
