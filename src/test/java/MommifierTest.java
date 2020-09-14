@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class MommifierTest {
     @Test
@@ -12,5 +13,17 @@ public class MommifierTest {
         String result = mommifier.convertString(stringOfNone);
         //Then
         assertEquals(result, "");
+    }
+
+    @Test
+    void should_throw_exception_when_given_string_is_null() {
+        //Given
+        String stringOfNull = null;
+        //When
+        Mommifier mommifier = new Mommifier();
+        //Then
+        assertThrows(RuntimeException.class,  ()-> {
+            mommifier.convertString(stringOfNull);
+        });
     }
 }
