@@ -32,9 +32,20 @@ public class MommifierTest {
         //Given
         String stringOfNoRepeat = "abcde";
         //When
-        Mommifier mommifier=new Mommifier();
+        Mommifier mommifier = new Mommifier();
         String result = mommifier.convertString(stringOfNoRepeat);
         //Then
         assertEquals(result, "abcde");
+    }
+
+    @Test
+    void should_insert_mommy_when_string_have_repeat_vowels_more_than_30_percent() {
+        //Given
+        String stringRepeatLess = "aabceed";
+        //When
+        Mommifier mommifier = new Mommifier();
+        String result = mommifier.convertString(stringRepeatLess);
+        //Then
+        assertEquals(result, "amommyabcemommyed");
     }
 }
